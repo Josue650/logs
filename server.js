@@ -59,6 +59,19 @@ app.get('/logs/new', (req, res) => {
 
 // CREATE
 
+app.post('/logs', (req, res) =>{
+    // req.body which contains all of our form Data we will get from the user
+    req.body.shipIsBroken === 'on' ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
+    Fruit.create(req.body, (err, createdLogs) => {
+      if(err){
+        console.error(err)
+        res.status(400).send(err)
+      } else {
+        res.redirect('/logs')
+      }
+    })
+  })
+
 // EDIT (not applicable in an api)
 
 // SHOW ---- READ ---- GET
