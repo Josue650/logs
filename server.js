@@ -1,6 +1,8 @@
+require('dotenv').config()
+
 // Require modules
- // this engine requires the fs module like we did Saturday
 const express = require('express')
+const mongoose = require('mongoose')
 
 
 // Create our express app
@@ -16,7 +18,13 @@ const app = express()
 // Mount our middleware (app.use)
 
 /*Start Middleware */
-
+app.use(express.urlencoded({ extended: true })) // This code makes us have req.body
+app.engine('jsx', require ('jsx-view-engine').createEngine())
+app.set('view engine', 'jsx') // register the jsx view engine
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connection.once('open', () => {
+  console.log('connected to MongoDB Atlas')
+})
 
 
 
