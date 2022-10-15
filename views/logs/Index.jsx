@@ -1,14 +1,11 @@
-const React = require('react')
+const React = require('react');
+const Default = require('../layouts/Default.jsx')
 
 class Index extends React.Component {
     render(){
         const {logs} = this.props
         return(
-            <div>
-                <h1>Logs Index Page</h1>
-                <nav>
-                    <a href='/logs/new'>Create a New Log</a>
-                </nav>
+            <Default title="Logs Index Page">
                 <ul>
                     {
                         logs.map((log) => {
@@ -33,7 +30,7 @@ class Index extends React.Component {
                         })
                     }
                 </ul>
-            </div>
+            </Default>
         )
 
     }

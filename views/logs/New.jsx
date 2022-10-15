@@ -1,9 +1,10 @@
 const React = require('react')
+const Default = require('../layouts/Default')
 
 class New extends React.Component {
     render() {
         return (
-            <>
+            <Default>
             <h1>Create A New Log</h1>
              {/* <nav>
                 <a href='/logs'>Go back to Logs Home Page</a>
@@ -14,7 +15,7 @@ class New extends React.Component {
                 Ship is Broken: <input type="checkbox" name='shipIsBroken' />
                 <input type="submit" value="Submit Entry" />
             </form>
-            </>
+            </Default>
         )
     }
 }
